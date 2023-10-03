@@ -20,8 +20,10 @@ const config: ForgeConfig = {
     new MakerRpm({}),
     new MakerDeb({}),
   ],
+  // yarn start時にMultiple plugins tried to take control of the start commendエラーが発生したので、
+  // 対処としてAutoUnpackNativesPluginを除外 
   plugins: [
-    new AutoUnpackNativesPlugin({}),
+    // new AutoUnpackNativesPlugin({}),
     new WebpackPlugin({
       mainConfig,
       renderer: {
